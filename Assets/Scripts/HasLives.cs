@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HasLives : MonoBehaviour
 {
@@ -17,6 +18,6 @@ public class HasLives : MonoBehaviour
 
     private void GameOver()
     {
-        //do gameover shit
+        SceneManager.LoadScene(1);
     }
 }

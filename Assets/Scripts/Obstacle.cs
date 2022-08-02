@@ -6,14 +6,14 @@ public class Obstacle : MonoBehaviour
 {
     public GameObject player;
     public int damage;
-    void Start()
+    virtual public void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         if (damage == 0) damage = 1;
     }
 
     // Update is called once per frame
-    void Update()
+    virtual public void Update()
     {
 
     }
@@ -27,8 +27,11 @@ public class Obstacle : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            if (!player.GetComponent<Damage>().isImmune)
+            {
             StartCoroutine("SlowDown");
             player.GetComponent<Damage>().TakeDamage(damage);
+            }
             TurnOffCollision();
         }
     }
